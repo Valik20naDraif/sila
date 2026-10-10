@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<title>☯️𐎠SILA — Сила древних</title>
+<meta name="description" content="☯️𐎠SILA — цифровой актив на блокчейне TON, вдохновлённый древними символами, циклами и идеей возвращающейся силы." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="☯️𐎠SILA — Сила древних" />
+<meta property="og:description" content="Цифровой актив на TON. Древний символ. Новый цикл." />
+<meta property="og:image" content="sila.png" />
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☯️</text></svg>" />
+
+<style>
+:root {
+--panel-strong: rgba(18, 26, 44, 0.95);
+--border: rgba(143, 163, 200, 0.18);
+--border-strong: rgba(143, 163, 200, 0.35);
+--text: #eef2ff;
+--muted: #aab6d4;
+--dim: #6d7b9a;
+--accent: #8fa3c8;
+--silver: #a9c4e0;
+--danger: #f1a7a7;
+--radius-xl: 28px;
+--radius-lg: 22px;
+--shadow: 0 20px 70px rgba(0, 0, 0, 0.38);
+--transition: 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+--font-main: Georgia, "Times New Roman", serif;
+--font-ui: 'Inter', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+margin: 0;
+min-height: 100vh;
+font-family: var(--font-main);
+color: var(--text);
+background:
+radial-gradient(circle at top, rgba(143, 163, 200, 0.16), transparent 30%),
+radial-gradient(circle at 20% 10%, rgba(169, 196, 224, 0.10), transparent 24%),
+linear-gradient(180deg, #0b1120 0%, #070b14 45%, #05070d 100%);
+line-height: 1.7;
+overflow-x: hidden;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+.container {
+width: min(100% - 32px, 980px);
+margin-inline: auto;
+}
+
+.skip-link {
+position: absolute;
+left: -999px;
+top: 10px;
+z-index: 100;
+padding: 10px 14px;
+background: var(--panel-strong);
+border: 1px solid var(--border-strong);
+border-radius: 12px;
+font-family: var(--font-ui);
+font-size: 14px;
+}
+.skip-link:focus { left: 16px; }
+
+.hero { position: relative; padding: 88px 0 56px; text-align: center; }
+.hero::before {
+content: "";
+position: absolute;
+inset: 0;
+background:
+radial-gradient(circle at 50% 0%, rgba(143, 163, 200, 0.12), transparent 38%),
+linear-gradient(180deg, rgba(255,255,255,0.02), transparent 20%);
+pointer-events: none;
+}
+.hero-inner { position: relative; z-index: 1; }
+
+.eyebrow {
+display: inline-flex;
+align-items: center;
+gap: 10px;
+padding: 8px 14px;
+margin-bottom: 18px;
+border: 1px solid var(--border);
+border-radius: 999px;
+background: rgba(255,255,255,0.03);
+color: var(--muted);
+font-family: var(--font-ui);
+font-size: 12px;
+letter-spacing: 0.16em;
+text-transform: uppercase;
+backdrop-filter: blur(10px);
+}
+.eyebrow-dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: var(--silver);
+box-shadow: 0 0 18px rgba(169, 196, 224, 0.65);
+}
+
+h1 {
+margin: 0 0 14px;
+font-size: clamp(42px, 8vw, 82px);
+line-height: 0.98;
+letter-spacing: 0.04em;
+font-weight: 400;
+color: #f6f8ff;
+}
+
+.tagline {
+margin: 0;
+font-size: clamp(18px, 3vw, 24px);
+color: var(--muted);
+letter-spacing: 0.08em;
+}
+
+.founded {
+display: inline-block;
+margin-top: 22px;
+padding: 6px 14px;
+font-family: var(--font-ui);
+font-size: 12px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--dim);
+border: 1px solid var(--border);
+border-radius: 999px;
+background: rgba(255,255,255,0.02);
+}
+
+.ancient-line {
+margin: 18px auto 0;
+max-width: 720px;
+color: var(--dim);
+font-size: 15px;
+letter-spacing: 0.18em;
+line-height: 2;
+}
+
+.logo-pair {
+display: flex;
+justify-content: center;
+align-items: center;
+gap: clamp(20px, 5vw, 56px);
+margin: 42px 0 28px;
+flex-wrap: wrap;
+}
+.logo-side { text-align: center; min-width: 170px; }
+
+.logo-frame {
+position: relative;
+width: clamp(150px, 28vw, 190px);
+aspect-ratio: 1 / 1;
+margin: 0 auto 14px;
+border-radius: 50%;
+padding: 10px;
+background:
+radial-gradient(circle at 30% 20%, rgba(255,255,255,0.12), transparent 35%),
+linear-gradient(145deg, rgba(143,163,200,0.26), rgba(169,196,224,0.12));
+border: 1px solid var(--border-strong);
+box-shadow: var(--shadow);
+transition: transform var(--transition), box-shadow var(--transition);
+}
+.logo-frame:hover {
+transform: translateY(-4px) scale(1.02);
+box-shadow: 0 24px 80px rgba(0,0,0,0.45);
+}
+.logo-frame img {
+width: 100%;
+height: 100%;
+border-radius: 50%;
+object-fit: cover;
+border: 1px solid rgba(255,255,255,0.08);
+filter: saturate(0.92) contrast(1.02);
+transition: filter var(--transition);
+}
+.logo-frame:hover img { filter: saturate(1) contrast(1.05); }
+
+.logo-caption {
+display: block;
+font-family: var(--font-ui);
+font-size: 12px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(--dim);
+}
+
+.actions {
+display: flex;
+justify-content: center;
+gap: 12px;
+flex-wrap: wrap;
+margin-top: 10px;
+}
+
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+min-height: 48px;
+padding: 12px 24px;
+border-radius: 999px;
+border: 1px solid var(--border-strong);
+background: rgba(255,255,255,0.03);
+color: var(--text);
+font-family: var(--font-ui);
+font-size: 14px;
+letter-spacing: 0.08em;
+text-transform: uppercase;
+transition: transform var(--transition), background var(--transition), border-color var(--transition), box-shadow var(--transition), color var(--transition);
+cursor: pointer;
+user-select: none;
+}
+.btn:hover {
+transform: translateY(-2px);
+background: rgba(143,163,200,0.12);
+border-color: rgba(143,163,200,0.45);
+box-shadow: 0 12px 30px rgba(0,0,0,0.24);
+}
+.btn.primary {
+background: linear-gradient(135deg, rgba(143,163,200,0.22), rgba(169,196,224,0.16));
+border-color: rgba(169,196,224,0.35);
+color: #f5f9ff;
+}
+.btn.primary:hover {
+background: linear-gradient(135deg, rgba(143,163,200,0.3), rgba(169,196,224,0.24));
+}
+.btn.ghost { background: transparent; }
+
+.section {
+padding: 64px 0;
+border-top: 1px solid rgba(143,163,200,0.10);
+}
+.section-head { margin-bottom: 28px; }
+
+h2 {
+margin: 0 0 10px;
+font-size: clamp(26px, 4vw, 38px);
+line-height: 1.1;
+letter-spacing: 0.06em;
+text-transform: uppercase;
+color: #f3f6ff;
+font-weight: 400;
+}
+.section-subtitle {
+margin: 0;
+color: var(--muted);
+max-width: 760px;
+}
+
+.panel {
+background: linear-gradient(180deg, rgba(15,22,38,0.88), rgba(10,15,28,0.82));
+border: 1px solid var(--border);
+border-radius: var(--radius-xl);
+box-shadow: var(--shadow);
+backdrop-filter: blur(14px);
+}
+
+.about-grid {
+display: grid;
+grid-template-columns: 1.2fr 0.8fr;
+gap: 18px;
+align-items: stretch;
+}
+.about-text, .about-quote {
+padding: 28px;
+border-radius: var(--radius-lg);
+border: 1px solid var(--border);
+background: rgba(255,255,255,0.025);
+}
+.about-text p, .about-quote p {
+margin: 0 0 14px;
+color: var(--muted);
+}
+.about-text p:last-child, .about-quote p:last-child { margin-bottom: 0; }
+
+.about-quote {
+display: flex;
+flex-direction: column;
+justify-content: center;
+text-align: center;
+background:
+radial-gradient(circle at top right, rgba(169,196,224,0.10), transparent 40%),
+rgba(255,255,255,0.025);
+}
+.quote-symbol {
+font-size: 42px;
+line-height: 1;
+margin-bottom: 12px;
+color: var(--silver);
+}
+
+.tokenomics-grid {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 14px;
+margin-bottom: 18px;
+}
+.stat {
+padding: 22px;
+border-radius: var(--radius-lg);
+border: 1px solid var(--border);
+background: rgba(255,255,255,0.03);
+min-height: 132px;
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+transition: transform var(--transition), border-color var(--transition), background var(--transition);
+}
+.stat:hover {
+transform: translateY(-3px);
+border-color: rgba(143,163,200,0.28);
+background: rgba(255,255,255,0.045);
+}
+.stat-label {
+margin: 0;
+font-family: var(--font-ui);
+font-size: 12px;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(--dim);
+}
+.stat-value {
+margin: 10px 0 0;
+font-size: 22px;
+line-height: 1.2;
+color: var(--text);
+word-break: break-word;
+}
+
+.allocation-list {
+list-style: none;
+margin: 0;
+padding: 0;
+display: grid;
+gap: 10px;
+}
+.allocation-list li {
+display: flex;
+justify-content: space-between;
+gap: 16px;
+padding: 14px 16px;
+border-radius: 14px;
+background: rgba(255,255,255,0.025);
+border: 1px solid rgba(143,163,200,0.10);
+color: var(--muted);
+font-family: var(--font-ui);
+font-size: 14px;
+}
+.allocation-list li span:last-child {
+color: var(--text);
+font-weight: 600;
+}
+
+.contract-row {
+margin-top: 18px;
+display: flex;
+flex-wrap: wrap;
+align-items: center;
+gap: 12px;
+padding: 16px;
+border-radius: 18px;
+border: 1px dashed rgba(143,163,200,0.24);
+background: rgba(255,255,255,0.02);
+}
+.contract-label {
+font-family: var(--font-ui);
+font-size: 12px;
+letter-spacing: 0.14em;
+text-transform: uppercase;
+color: var(--dim);
+}
+.contract-value {
+font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+font-size: 14px;
+color: var(--text);
+word-break: break-all;
+}
+
+.roadmap-grid {
+display: grid;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+gap: 14px;
+}
+.phase-card {
+position: relative;
+padding: 24px;
+border-radius: var(--radius-lg);
+border: 1px solid var(--border);
+background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+overflow: hidden;
+transition: transform var(--transition), border-color var(--transition);
+}
+.phase-card:hover {
+transform: translateY(-4px);
+border-color: rgba(143,163,200,0.28);
+}
+.phase-number {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+width: 38px;
+height: 38px;
+margin-bottom: 14px;
+border-radius: 50%;
+background: rgba(143,163,200,0.12);
+border: 1px solid rgba(143,163,200,0.22);
+font-family: var(--font-ui);
+font-size: 13px;
+font-weight: 700;
+color: #dbe6ff;
+}
+.phase-card h3 {
+margin: 0 0 12px;
+font-size: 18px;
+letter-spacing: 0.05em;
+color: #eef3ff;
+font-weight: 400;
+text-transform: uppercase;
+}
+.phase-card ul {
+margin: 0;
+padding-left: 18px;
+color: var(--muted);
+font-size: 15px;
+}
+.phase-card li { margin-bottom: 8px; }
+
+.steps {
+counter-reset: step;
+list-style: none;
+margin: 0;
+padding: 0;
+display: grid;
+gap: 14px;
+}
+.steps li {
+position: relative;
+padding: 20px 20px 20px 72px;
+border-radius: 18px;
+border: 1px solid var(--border);
+background: rgba(255,255,255,0.028);
+color: var(--muted);
+transition: transform var(--transition), border-color var(--transition);
+}
+.steps li:hover {
+transform: translateX(4px);
+border-color: rgba(143,163,200,0.24);
+}
+.steps li::before {
+counter-increment: step;
+content: counter(step);
+position: absolute;
+left: 18px;
+top: 18px;
+width: 38px;
+height: 38px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background: rgba(169,196,224,0.12);
+border: 1px solid rgba(169,196,224,0.24);
+color: #dbe6ff;
+font-family: var(--font-ui);
+font-weight: 700;
+font-size: 14px;
+}
+
+.community-links {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+margin-top: 18px;
+}
+
+.faq-list { display: grid; gap: 12px; }
+
+details.faq-item {
+border: 1px solid var(--border);
+border-radius: 18px;
+background: rgba(255,255,255,0.028);
+overflow: hidden;
+transition: border-color var(--transition), background var(--transition);
+}
+details.faq-item[open] {
+border-color: rgba(143,163,200,0.26);
+background: rgba(255,255,255,0.04);
+}
+summary {
+list-style: none;
+cursor: pointer;
+padding: 18px 20px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 16px;
+color: var(--text);
+font-family: var(--font-ui);
+font-size: 15px;
+font-weight: 600;
+letter-spacing: 0.02em;
+}
+summary::-webkit-details-marker { display: none; }
+summary::after {
+content: "+";
+flex: 0 0 auto;
+width: 28px;
+height: 28px;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+border: 1px solid rgba(143,163,200,0.22);
+background: rgba(143,163,200,0.08);
+color: #dce6ff;
+font-size: 18px;
+line-height: 1;
+}
+details[open] summary::after {
+content: "–";
+background: rgba(169,196,224,0.12);
+border-color: rgba(169,196,224,0.24);
+color: #dbe6ff;
+}
+.faq-body { padding: 0 20px 20px; color: var(--muted); }
+.faq-body p { margin: 0 0 10px; }
+.faq-body p:last-child { margin-bottom: 0; }
+
+.disclaimer {
+margin-top: 18px;
+padding: 18px 20px;
+border-left: 3px solid var(--danger);
+border-radius: 16px;
+background: rgba(241,167,167,0.06);
+color: #f5d7d7;
+font-family: var(--font-ui);
+font-size: 14px;
+line-height: 1.7;
+}
+
+.footer {
+padding: 40px 0 48px;
+border-top: 1px solid rgba(143,163,200,0.10);
+text-align: center;
+color: var(--dim);
+font-family: var(--font-ui);
+font-size: 13px;
+letter-spacing: 0.04em;
+}
+.footer p { margin: 6px 0; }
+.footer .date {
+letter-spacing: 2px;
+color: var(--silver);
+}
+
+@media (max-width: 900px) {
+.about-grid,
+.tokenomics-grid,
+.roadmap-grid {
+grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+}
+
+@media (max-width: 680px) {
+.hero { padding-top: 72px; }
+.about-grid,
+.tokenomics-grid,
+.roadmap-grid { grid-template-columns: 1fr; }
+.stat,
+.phase-card,
+.about-text,
+.about-quote { padding: 20px; }
+.steps li { padding-left: 66px; }
+.contract-row {
+align-items: flex-start;
+flex-direction: column;
+}
+}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержимому</a>
+
+<header class="hero">
+<div class="container hero-inner">
+<div class="eyebrow">
+<span class="eyebrow-dot"></span>
+<span>Digital Asset · TON</span>
+</div>
+
+<h1>☯️𐎠SILA</h1>
+<p class="tagline">Сила древних. Возвращающаяся сила.</p>
+
+<div class="logo-pair">
+<div class="logo-side">
+<div class="logo-frame">
+<img src="sila.png" alt="SILA — лицевая сторона" loading="lazy"
+onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%238fa3c8%22/%3E%3Ctext x=%2250%22 y=%2265%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2240%22 fill=%22white%22%3ES%3C/text%3E%3C/svg%3E'" />
+</div>
+<span class="logo-caption">Digital Asset</span>
+</div>
+
+<div class="logo-side">
+<div class="logo-frame">
+<img src="mir.png" alt="MIR — обратная сторона" loading="lazy"
+onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2250%22 r=%2245%22 fill=%22%23a9c4e0%22/%3E%3Ctext x=%2250%22 y=%2265%22 text-anchor=%22middle%22 font-family=%22Arial%22 font-size=%2240%22 fill=%22white%22%3EM%3C/text%3E%3C/svg%3E'" />
+</div>
+<span class="logo-caption">Создатель</span>
+</div>
+</div>
+
+<p class="founded">Основано · 06.10.2026</p>
+
+<p class="ancient-line">𐎠𐎤 𐎮𐎰 — 𐎱𐎳 𐎵𐎶</p>
+
+<div class="actions">
+<a class="btn primary" href="https://t.me/valik20_digital_bridge" target="_blank" rel="noopener noreferrer">Telegram</a>
+<a class="btn" href="#buy">Купить</a>
+<a class="btn ghost" href="#tokenomics">Токеномика</a>
+</div>
+</div>
+</header>
+
+<main id="main">
+
+<section class="section">
+<div class="container">
+<div class="section-head">
+<h2>Что такое ☯️𐎠SILA</h2>
+<p class="section-subtitle">
+Проект, построенный вокруг идеи цикла, возвращающейся силы и древней символики.
+</p>
+</div>
+
+<div class="about-grid panel">
+<div class="about-text">
+<p>В древности серебро называли силой.</p>
+<p>Шумеры знали: всё возвращается.</p>
+<p class="ancient-line">𐎠𐎭 𐎮𐎯 𐎱𐎳 𐎵 𐎷𐎸𐎹.</p>
+<p>И цикл начинается заново.</p>
+<p>
+☯️𐎠SILA — это не просто токен.<br />
+Это печать древних знаний.<br />
+Это сила, которая ждёт своего часа.
+</p>
+</div>
+
+<div class="about-quote">
+<div class="quote-symbol">☯️</div>
+<p>Сила не исчезает — она меняет форму.</p>
+<p>Сегодня она в коде, завтра — в истории.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="tokenomics" class="section">
+<div class="container">
+<div class="section-head">
+<h2>Токеномика</h2>
+<p class="section-subtitle">Основные параметры цифрового актива.</p>
+</div>
+
+<div class="tokenomics-grid">
+<article class="stat">
+<p class="stat-label">Название</p>
+<p class="stat-value">Digital Asset</p>
+</article>
+<article class="stat">
+<p class="stat-label">Символ</p>
+<p class="stat-value">☯️𐎠SILA</p>
+</article>
+<article class="stat">
+<p class="stat-label">Supply</p>
+<p class="stat-value">100 000 000</p>
+</article>
+<article class="stat">
+<p class="stat-label">Сеть</p>
+<p class="stat-value">TON</p>
+</article>
+</div>
+
+<div class="panel" style="padding: 24px;">
+<ul class="allocation-list">
+<li><span>Ликвидность</span><span>60%</span></li>
+<li><span>Сообщество</span><span>20%</span></li>
+<li><span>Команда</span><span>15%</span></li>
+<li><span>Резерв</span><span>5%</span></li>
+</ul>
+
+<div class="contract-row">
+<div>
+<div class="contract-label">Контракт</div>
+<div id="contract-address" class="contract-value">Вставьте адрес после деплоя</div>
+</div>
+<button class="btn ghost" type="button" data-copy="#contract-address">Скопировать</button>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-head">
+<h2>Роадмап</h2>
+<p class="section-subtitle">План развития проекта по фазам.</p>
+</div>
+
+<div class="roadmap-grid">
+<article class="phase-card">
+<div class="phase-number">01</div>
+<h3>Пробуждение</h3>
+<ul>
+<li>Концепт и айдентика</li>
+<li>Запуск сайта</li>
+<li>Социальные сети</li>
+<li>Формирование комьюнити</li>
+</ul>
+</article>
+<article class="phase-card">
+<div class="phase-number">02</div>
+<h3>Печать</h3>
+<ul>
+<li>Смарт-контракт</li>
+<li>Проверка безопасности</li>
+<li>Листинг на DEX</li>
+<li>Первые объёмы</li>
+</ul>
+</article>
+<article class="phase-card">
+<div class="phase-number">03</div>
+<h3>Пролёт</h3>
+<ul>
+<li>Маркетинговая кампания</li>
+<li>Инфлюенсеры</li>
+<li>События сообщества</li>
+<li>Механика сжигания</li>
+</ul>
+</article>
+<article class="phase-card">
+<div class="phase-number">04</div>
+<h3>Цикл</h3>
+<ul>
+<li>CEX-листинги</li>
+<li>Партнёрства</li>
+<li>NFT-коллекция</li>
+<li>Новый виток проекта</li>
+</ul>
+</article>
+</div>
+</div>
+</section>
+
+<section id="buy" class="section">
+<div class="container">
+<div class="section-head">
+<h2>Как купить</h2>
+<p class="section-subtitle">Простая инструкция для пользователей сети TON.</p>
+</div>
+
+<ol class="steps">
+<li>Создайте кошелёк, например Tonkeeper.</li>
+<li>Пополните баланс монетами TON.</li>
+<li>Подключитесь к DEX: DeDust или Ston.fi.</li>
+<li>Найдите пул с токеном ☯️𐎠SILA.</li>
+<li>Обменяйте TON на ☯️𐎠SILA.</li>
+</ol>
+
+<div class="disclaimer">
+Покупка криптовалютных активов связана с высоким риском.
+Всегда проверяйте адрес контракта, ликвидность и условия проекта перед сделкой.
+</div>
+</div>
+</section>
+
+<section id="community" class="section">
+<div class="container">
+<div class="section-head">
+<h2>Сообщество</h2>
+<p class="section-subtitle">Следите за обновлениями, обсуждениями и анонсами.</p>
+</div>
+
+<div class="panel" style="padding: 24px;">
+<p style="margin-top:0; color: var(--muted);">
+Присоединяйся к нашему сообществу:
+</p>
+
+<div class="community-links">
+<a class="btn primary" href="https://t.me/valik20_digital_bridge" target="_blank" rel="noopener noreferrer">Telegram</a>
+<a class="btn" href="https://vk.ru/mir_digital_bridge" target="_blank" rel="noopener noreferrer">ВКонтакте</a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+<div class="section-head">
+<h2>FAQ</h2>
+<p class="section-subtitle">Частые вопросы о проекте.</p>
+</div>
+
+<div class="faq-list">
+<details class="faq-item">
+<summary>Что такое ☯️𐎠SILA?</summary>
+<div class="faq-body">
+<p>Это цифровой актив на сети TON, объединяющий древнюю символику, идею цикла и концепцию возвращающейся силы.</p>
+</div>
+</details>
+
+<details class="faq-item">
+<summary>Где купить токен?</summary>
+<div class="faq-body">
+<p>После запуска — на децентрализованных биржах сети TON. Позже возможно появление на централизованных площадках.</p>
+</div>
+</details>
+
+<details class="faq-item">
+<summary>Это безопасно?</summary>
+<div class="faq-body">
+<p>Любые криптопроекты несут риск. Перед покупкой проверяйте контракт, ликвидность, распределение токенов и официальную информацию.</p>
+</div>
+</details>
+
+<details class="faq-item">
+<summary>Есть ли гарантия доходности?</summary>
+<div class="faq-body">
+<p>Нет. Крипторынок волатилен. Никакой проект не может гарантировать прибыль.</p>
+</div>
+</details>
+
+<details class="faq-item">
+<summary>® Mironychev Valentin</summary>
+<div class="faq-body">
+<p class="ancient-line">𐎠𐎤 𐎮𐎰 𐎱𐎲𐎳.</p>
+<p>Следите за роадмапом и официальными анонсами. 🌠</p>
+</div>
+</details>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="container">
+<p>СОЗДАТЕЛЬ: Mironychev Valentin</p>
+<p class="date">Дата основания: 06.10.2026</p>
+<p>Не является финансовым советом.</p>
+<p>© <span id="year"></span> ☯️𐎠SILA</p>
+</div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const copyButtons = document.querySelectorAll("[data-copy]");
+copyButtons.forEach((button) => {
+button.addEventListener("click", async () => {
+const selector = button.getAttribute("data-copy");
+const target = document.querySelector(selector);
+if (!target) return;
+const text = target.textContent.trim();
+const original = button.textContent;
+try {
+await navigator.clipboard.writeText(text);
+button.textContent = "Скопировано";
+} catch (error) {
+button.textContent = "Не удалось";
+}
+setTimeout(() => { button.textContent = original; }, 1600);
+});
+});
+</script>
+</body>
+</html> index.html
